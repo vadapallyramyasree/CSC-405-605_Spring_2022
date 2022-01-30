@@ -1,0 +1,42 @@
+# # DATA SCIENCE ASSIGNMENT 1
+#RAMYASREE VADAPALLY
+
+#  Importing the CSV and Random Libraries to read the tsv file and shuffle the list respectively
+
+import csv
+import random
+
+# ### Reading the File and moving the pointer from header to first student.
+
+
+file = open("sp-22-students.tsv")
+
+studata=csv.reader(file, delimiter='\t')
+
+temp=next(studata)
+
+
+# ### Reading the data into a list called students_list and shuffling it using random library.
+
+
+students_list=[]
+for a in studata:
+    students_list.append(a)
+random.shuffle(students_list)
+
+# ### Taking the contribution for number of wanted gatherings to be framed from client in numbers.
+# Then at that point a for circle will be run n times where n is the ideal number of gatherings
+# A nested for loop will get the values(r) starting with group number to the total number of students in the class with an equivalent intravels of n. The rth esteem  from understudies list is annexed to new rundown made for each group.
+# ### Output:
+# The output will be the provided list  of students from each new Team formed.
+# 
+# 
+
+
+strength=len(students_list)
+groups=int(input('Enter the ideal number of teams in number: '))
+for i in range (0,int(groups)):
+    Teams=[]
+    for r in range(i, strength, int(groups)):
+        Teams.append(students_list[r])
+    print('\n Teamates ',i+1,'  \n\n\n',Teams)
